@@ -1,59 +1,34 @@
-##Colosseum
+# Colosseum
 
-A website for watching videos together.
+Colosseum is a collaborative video watching platform that facilitates synchronized viewing experiences among multiple users. It offers seamless synchronization of video playback, including play, pause, and seek functionalities, ensuring that all viewers are in sync. The platform supports various sources for video content, including screen sharing, online videos accessible via HTTP, and YouTube videos. Users can create separate rooms on demand, each with its own set of features and participants.
 
-## Description
+## Key Features
 
-•	Synchronizes the video being watched with the current room
-•	Plays, pauses, and seeks are synced to all watchers
-•	Supports:
-o	Screen sharing (full screen, browser tab or application)
-o	Video files on the Internet (anything accessible via HTTP)
-o	YouTube videos
-•	Create separate rooms for users on demand
-•	Text chat
-•	Video chat
+- **Synchronized Viewing**: Watch videos together in real-time with synchronized playback controls.
+- **Multiple Content Sources**: Supports screen sharing, online videos, and YouTube videos.
+- **Room Creation**: Users can create separate rooms as needed for different viewing sessions.
+- **Text Chat**: Engage in text-based communication within the viewing room.
+- **Video Chat**: Enable video communication alongside video watching for enhanced interaction.
 
 ## Quick Start
 
-•	Install npm dependencies for the project via `npm install`
-•	Start the server via `PORT=8080 npm run dev`
-o	Defaults to port 8080, customize with `PORT` env var
-o	Run using self-signed HTTPS cert with `HTTPS=true`. This is needed for some WebRTC features (camera, etc.)
-•	Start the React application in a separate shell and port via `PORT=3000 npm run start`
-o	Point to server using `REACT_APP_SERVER_HOST` env var if you customized it above
-o	Run using self-signed HTTPS cert with `HTTPS=true`. This is needed for some WebRTC features (camera, etc.)
-•	Duplicate the `.env.example` file
-•	Rename it to `.env`
-•	Add config for the features you want as described in the advanced setup
+1. **Installation**: Install npm dependencies by running `npm install`.
+2. **Server Start**: Start the server with `PORT=8080 npm run dev`. Customize the port using the `PORT` environment variable.
+3. **Client Start**: Launch the React application in a separate shell with `PORT=3000 npm run start`. Point to the server using `REACT_APP_SERVER_HOST` environment variable if customized.
+4. **Configuration**: Duplicate `.env.example`, rename it to `.env`, and add necessary configurations as described in the advanced setup.
 
-### YouTube API (video search)
+## Advanced Setup
 
-•	This project uses the YouTube API for video search, which requires an API key. You can get one from Google [here](https://console.developers.google.com).
+- **YouTube API Integration**: Obtain a YouTube API key and add it to the `.env` file for video search functionality.
+- **Firebase Authentication**: Set up Firebase for user authentication by providing Firebase SDK configuration in the `.env` file.
 
-•	Without an API key you won't be able to search for videos via the searchbox.
+## Technologies Used
 
-•	After creating a **YouTube Data API V3** access, you can create an API key which you can add to your environment variables by copying the `.env.example`, renaming it to `.env` and adding the key to the YOUTUBE_API_KEY variable.
+- **React**: Frontend development framework for building user interfaces.
+- **TypeScript**: Superset of JavaScript for type-checking and improved code quality.
+- **Node.js**: Backend JavaScript runtime environment for server-side logic.
+- **Socket.io**: Real-time communication library enabling synchronized actions among clients.
+- **Docker**: Containerization platform for packaging applications and their dependencies.
+- **PostgreSQL**: Relational database management system for storing application data.
 
-•	After that restart your server to enable the YouTube API access on your server.
-
-### Firebase Config (user authentication)
-
-•	This project uses Firebase for authentication. This is used for user login, account management, subscriptions, and handling some features like room locking/permanence.
-
-•	To set up, create a new Firebase app (or reuse an old one) from [here](https://console.firebase.google.com/). After creating an application, click on the settings cog icon in the left menu next to "Project overview" and click on project settings. From there, scroll down, create a web application and copy the Firebase SDK configuration snippet JSON data.
-
-•	Next, you have to stringify it: `JSON.stringify(PASTE_CONFIG_HERE)` in your browser console, then add it to `REACT_APP_FIREBASE_CONFIG` in your .env file.
-
-•	For server verification of accounts you'll also need `FIREBASE_ADMIN_SDK_CONFIG`, which you should do the same steps for.
-
-
-### Permeant room
-
-
-## Tech
-
-•	React
-•	TypeScript
-•	Node.js
-•	sockect.io
+By combining these technologies, Colosseum delivers a seamless and interactive platform for synchronized video watching and communication.
